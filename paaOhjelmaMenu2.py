@@ -37,8 +37,18 @@ juomat = [cola, fanta, pepsi, sprite, vesi]
 lisukkeet = [ranskalaiset, bataatti, nugetit, mozzarella, miniporkkanat]
 jalkiruuat = [pehmis, jaatelo, pirtelo, muffinssi, keksi]
 
+#Pääkoodi alkaa
+
+tilaus = []
+
+def LisaaListaan(til):
+    tilausNumero = tempValinta - 1
+    print(tilausNumero)
+    tilaus.append(til[tilausNumero])  
+    print("Tilaukseen lisätty: ", tilaus[-1].tuote)
+    print("")
+
 def ValikkoPrint():
-    
     print("Numeroilla 1-5 saat ruokalistat sekä hinnat näkyviin")
     print("Numerolla 0 saat tilauksesi yhteenvedon ja hinnan") #"voit vielä muokata tilaustasi tai siirtyä maksamaan")
     print("1. Ateriat")
@@ -49,8 +59,25 @@ def ValikkoPrint():
     print("0. Valmis, siirry maksamaan")
     return
 
-#Pääkoodi alkaa
-tilaus = []
+def TulostaTuotteet(menu):
+    print("1.", menu[0].tuote, menu[0].hinta,"€")
+    print("2.", menu[1].tuote, menu[1].hinta,"€")
+    print("3.", menu[2].tuote, menu[2].hinta,"€")
+    print("4.", menu[3].tuote, menu[3].hinta,"€")
+    print("5.", menu[4].tuote, menu[4].hinta,"€")
+    print("Lisää haluamasi tuote syöttämällä tuotenumero terminaaliin")
+    print("Poistu valinnalla 0.") 
+    print("")
+
+def Ehto(toiminnot):
+    if tempValinta == 0:
+        return 0
+    elif tempValinta < 6:
+        LisaaListaan(toiminnot)        
+    else:
+        print("Tarkasta valintasi")
+        print("\n"*2)
+    
 
 print("Hei, saisinko tilauksenne?")
 
@@ -58,96 +85,34 @@ while True:
     ValikkoPrint()
     valinta = int(input())
     if valinta == 1:
-        print("1.", ateriat[0].tuote, ateriat[0].hinta,"€")
-        print("2.", ateriat[1].tuote, ateriat[1].hinta,"€")
-        print("3.", ateriat[2].tuote, ateriat[2].hinta,"€")
-        print("4.", ateriat[3].tuote, ateriat[3].hinta,"€")
-        print("5.", ateriat[4].tuote, ateriat[4].hinta,"€")
-        print("Lisää haluamasi tuote syöttämällä tuotenumero terminaaliin")
-        #print("Poistu valinnalla 0.") 
+        TulostaTuotteet(ateriat)
         
         tempValinta = int(input())
-        if tempValinta != 0:
-            tilausNumero = tempValinta - 1
-            print(tilausNumero)
-            tilaus.append(ateriat[tilausNumero])   
-
-        elif tempValinta == 0:
-            break
-        print("Tilaukseen lisätty: ", tilaus[-1].tuote)
-        print("")
-               
+        Ehto(ateriat)
+                       
     elif valinta == 2:
-        print("1.", juomat[0].tuote, juomat[0].hinta,"€")
-        print("2.", juomat[1].tuote, juomat[1].hinta,"€")
-        print("3.", juomat[2].tuote, juomat[2].hinta,"€")
-        print("4.", juomat[3].tuote, juomat[3].hinta,"€")
-        print("5.", juomat[4].tuote, juomat[4].hinta,"€")
+        TulostaTuotteet(juomat)
 
         tempValinta = int(input())
-        if tempValinta != 0:
-            tilausNumero = tempValinta - 1
-            print(tilausNumero)
-            tilaus.append(juomat[tilausNumero])   
-
-        elif tempValinta == 0:
-            break
-        print("Tilaukseen lisätty: ", tilaus[-1].tuote)
-        print("")
+        Ehto(juomat)
 
     elif valinta == 3:
-        print("1.", hampurilaiset[0].tuote, hampurilaiset[0].hinta,"€")
-        print("2.", hampurilaiset[1].tuote, hampurilaiset[1].hinta,"€")
-        print("3.", hampurilaiset[2].tuote, hampurilaiset[2].hinta,"€")
-        print("4.", hampurilaiset[3].tuote, hampurilaiset[3].hinta,"€")
-        print("5.", hampurilaiset[4].tuote, hampurilaiset[4].hinta,"€")
+        TulostaTuotteet(hampurilaiset)
 
         tempValinta = int(input())
-        if tempValinta != 0:
-            tilausNumero = tempValinta - 1
-            print(tilausNumero)
-            tilaus.append(hampurilaiset[tilausNumero])   
-
-        elif tempValinta == 0:
-            break
-        print("Tilaukseen lisätty: ", tilaus[-1].tuote)
-        print("")
+        Ehto(hampurilaiset)
 
     elif valinta == 4:
-        print("1.", lisukkeet[0].tuote, lisukkeet[0].hinta,"€")
-        print("2.", lisukkeet[1].tuote, lisukkeet[1].hinta,"€")
-        print("3.", lisukkeet[2].tuote, lisukkeet[2].hinta,"€")
-        print("4.", lisukkeet[3].tuote, lisukkeet[3].hinta,"€")
-        print("5.", lisukkeet[4].tuote, lisukkeet[4].hinta,"€")
+        TulostaTuotteet(lisukkeet)
 
         tempValinta = int(input())
-        if tempValinta != 0:
-            tilausNumero = tempValinta - 1
-            print(tilausNumero)
-            tilaus.append(lisukkeet[tilausNumero])   
-
-        elif tempValinta == 0:
-            break
-        print("Tilaukseen lisätty: ", tilaus[-1].tuote)
-        print("")
+        Ehto(lisukkeet) 
 
     elif valinta == 5:
-        print("1.", jalkiruuat[0].tuote, jalkiruuat[0].hinta,"€")
-        print("2.", jalkiruuat[1].tuote, jalkiruuat[1].hinta,"€")
-        print("3.", jalkiruuat[2].tuote, jalkiruuat[2].hinta,"€")
-        print("4.", jalkiruuat[3].tuote, jalkiruuat[3].hinta,"€")
-        print("5.", jalkiruuat[4].tuote, jalkiruuat[4].hinta,"€")
+        TulostaTuotteet(jalkiruuat)
 
         tempValinta = int(input())
-        if tempValinta != 0:
-            tilausNumero = tempValinta - 1
-            print(tilausNumero)
-            tilaus.append(jalkiruuat[tilausNumero])   
-
-        elif tempValinta == 0:
-            break
-        print("Tilaukseen lisätty: ", tilaus[-1].tuote)
-        print("")
+        Ehto(jalkiruuat)
 
     elif valinta == 0: #Breakin the loop when 0
         break
