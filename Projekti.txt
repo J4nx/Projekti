@@ -1,0 +1,2 @@
+Ohjelma on automaattinen pikaruokatilaus päätelaite joka näyttää asiakkaalle tuotevaihtoehdot, asiakas syöttää inputtina auki haluamansa listan ja näkee tuotteet sekä niiden hinnat.
+Sitten lisätään tuotenumerolla tuote tilauslistaan ja kun kaikki halutut tuotteet ovat lisätty listaan niin valinnalla 0. pääsee tilauksen yhteenvetoon.
