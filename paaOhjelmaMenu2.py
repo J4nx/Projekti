@@ -77,7 +77,17 @@ def Ehto(toiminnot):
     else:
         print("Tarkasta valintasi")
         print("\n"*2)
-    
+
+def Yhteenveto():
+    tilausYhteen = 0
+    print("\n"*10) 
+    print("Tilauksesi sisältää seuraavat tuotteet: ")
+    print("")
+    for i in range(len(tilaus)):
+        tilausYhteen += tilaus[i].hinta
+        tilaus[i].Tulostin()
+        i +=1
+    print("Tilauksesi on yhteensä: ",tilausYhteen, "€")
 
 print("Hei, saisinko tilauksenne?")
 
@@ -121,13 +131,4 @@ while True:
         print("Tarkasta valintasi")
         
 #Tilauksen esikatselu ja hinta
-
-tilausYhteen = 0
-print("\n"*10) 
-print("Tilauksesi sisältää seuraavat tuotteet: ")
-print("")
-for i in range(len(tilaus)):
-    tilausYhteen += tilaus[i].hinta
-    tilaus[i].Tulostin()
-    i +=1
-print("Tilauksesi on yhteensä: ",tilausYhteen, "€")
+Yhteenveto()
